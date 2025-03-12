@@ -1,5 +1,8 @@
 package com.project.demo.logic.entity.producto;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.project.demo.logic.entity.categoria.Categoria;
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
@@ -7,6 +10,10 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import java.util.Date;
 
+@JsonIdentityInfo(
+        generator = ObjectIdGenerators.PropertyGenerator.class,
+        property = "id"
+)
 @Entity
 @Table(name = "producto")
 public class Producto {
